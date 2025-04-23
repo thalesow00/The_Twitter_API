@@ -1,0 +1,22 @@
+gem 'dotenv' # Gestion des clés API
+gem 'pru', '~> 0.14.1' # Debugging
+gem "rubocop", "~> 1.43" # Lintergem 
+gem "pry", "~> 0.14.1" # Debugging
+gem "rspec"
+gem "twitter"
+require 'twitter'
+
+client = Twitter::REST::Client.new do |config|
+
+  config.consumer\_key        = ENV["TWITTER\_CONSUMER\_KEY"]
+
+  config.consumer\_secret     = ENV["TWITTER\_CONSUMER\_SECRET"]
+
+  config.access\_token        = ENV["TWITTER\_ACCESS\_TOKEN"]
+
+  config.access\_token\_secret = ENV["TWITTER\_ACCESS\_TOKEN\_SECRET"]
+
+end
+# ligne qui permet de tweeter sur ton compte
+
+client.update('Mon premier tweet en Ruby !!!!')
